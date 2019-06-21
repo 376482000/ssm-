@@ -1,0 +1,25 @@
+/*
+MySQL Backup
+Database: hotel
+Backup Time: 2019-06-21 15:35:53
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+DROP TABLE IF EXISTS `hotel`.`webuser`;
+CREATE TABLE `webuser` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `sex` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tele` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `qq` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `enabled` tinyint(4) DEFAULT NULL,
+  `authority` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+BEGIN;
+LOCK TABLES `hotel`.`webuser` WRITE;
+DELETE FROM `hotel`.`webuser`;
+INSERT INTO `hotel`.`webuser` (`id`,`username`,`password`,`sex`,`tele`,`qq`,`enabled`,`authority`) VALUES (1, '123', '123', '男', '13383540816', '376482000', 1, 'ROLE_USER'),(2, 'admin', 'admin', '女', '18182910107', '12321312', 1, 'ROLE_ADMIN');
+UNLOCK TABLES;
+COMMIT;
